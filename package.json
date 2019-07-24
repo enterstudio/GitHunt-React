@@ -10,7 +10,9 @@
     "dev": "NODE_ENV=development concurrently -c blue,cyan,magenta \"webpack --watch --config webpack.config.server.js\" \"sleep 3 && nodemon --watch build/server build/server/bundle.js\" \"webpack-dev-server -d --hot --inline --no-info --port 3020 --config webpack.config.client.js\"",
     "lint": "eslint ui",
     "test": "npm run lint",
-    "persistgraphql": "persistgraphql ui --add_typename"
+    "persistgraphql": "persistgraphql ui --add_typename",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -62,7 +64,8 @@
     "redux": "^3.5.2",
     "style-loader": "^0.13.1",
     "subscriptions-transport-ws": "^0.5.3",
-    "webpack": "2.2.1"
+    "webpack": "2.2.1",
+    "snyk": "^1.189.0"
   },
   "eslintConfig": {
     "env": {
@@ -84,5 +87,6 @@
         }
       ]
     }
-  }
+  },
+  "snyk": true
 }
